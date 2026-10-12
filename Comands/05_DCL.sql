@@ -3,13 +3,15 @@
 -- Purpose: Create the DCL (Data Control Language) for the database.
 -- ===================================================================
 
--- Crear un usuario de base de datos para el vigilante
-CREATE USER 'vigilante'@'localhost' IDENTIFIED BY 'Seguridad2026';
+USE `control_acceso_institucion`;
 
--- Dar permisos de solo lectura sobre accesos y alertas
-GRANT SELECT ON control_acceso_institucion.registro_accesos TO 'vigilante'@'localhost';
-GRANT SELECT ON control_acceso_institucion.alerta_seguridad TO 'vigilante'@'localhost';
+CREATE USER IF NOT EXISTS 'vigilante'@'localhost'
+IDENTIFIED BY 'Seguridad2026';
 
--- Revocar permisos de escritura si los hubiera
-REVOKE INSERT, UPDATE, DELETE ON control_acceso_institucion.* FROM 'vigilante'@'localhost';
+GRANT SELECT
+ON `control_acceso_institucion`.`registro_acceso`
+TO 'vigilante'@'localhost';
 
+GRANT SELECT
+ON `control_acceso_institucion`.`alerta_seguridad`
+TO 'vigilante'@'localhost';
