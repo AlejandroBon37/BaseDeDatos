@@ -15,7 +15,7 @@ VALUES (
      WHERE `numero_documento` = '1000123456'),
     (SELECT `dispositivo_id`
      FROM `dispositivo`
-     WHERE `nombre_dispositivo` = 'Lector Torniquete 1'),
+     WHERE `nombre_dispositivo` = 'Lector Torniquete Principal'),
     'Denegado'
 );
 
@@ -24,7 +24,7 @@ INSERT INTO `alerta_seguridad`
 VALUES (
     (SELECT `dispositivo_id`
      FROM `dispositivo`
-     WHERE `nombre_dispositivo` = 'Lector Torniquete 1'),
+     WHERE `nombre_dispositivo` = 'Lector Torniquete Principal'),
     'Intento de acceso no autorizado detectado',
     'Pendiente'
 );
